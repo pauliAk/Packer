@@ -63,12 +63,12 @@ variable "gallery_name" {
 
 variable "gallery_image_version" {
   type    = string
-  default = "1.0.1"
+  default = "1.0.3"
 }
 
 variable "gallery_image_version_updated" {
   type    = string
-  default = "1.0.3"
+  default = "1.0.4
 }
 
 variable "storage_account_name" {
