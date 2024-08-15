@@ -6,7 +6,7 @@ pool:
 
 steps:
 - script: packer init .
-- script: packer build    
+- script: packer build azureimage.pkr.hcl
 - task: riezebosch.Packer.Packer.Packer@1
   displayName: 'Packer build'
   inputs:
