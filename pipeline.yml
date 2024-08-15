@@ -11,6 +11,7 @@ steps:
   inputs:
     deployScriptPath: azureimage.pkr.hcl
     ConnectedServiceName: Visual Studio Enterprise Subscription(761cc7e6-a477-494a-99ef-a5d6aa0fde41)
+    azureResourceGroup: $(RESOURCE_GROUP_NAME)
 
 
 
