@@ -122,10 +122,10 @@ variable "managed_image_nameACG" {
 source "azure-arm" "example" {
 
 communicator = "winrm"
-  client_id                = var.client_id
-  client_secret            = var.client_secret
-  subscription_id          = var.subscription_id
-  tenant_id                = var.tenant_id
+  #client_id                = var.client_id
+  #client_secret            = var.client_secret
+  #subscription_id          = var.subscription_id
+  #tenant_id                = var.tenant_id
   managed_image_name       = "myManagedImage16"
   managed_image_resource_group_name = var.resource_group_name
   location                 = var.location
