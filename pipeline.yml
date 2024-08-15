@@ -16,6 +16,7 @@ steps:
     templateType: 'custom'
     customTemplateLocation: azureimage.pkr.hcl
     #location: westeurope
+    packerVersion: '1.11.2'
     
 
 
