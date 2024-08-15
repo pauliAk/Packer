@@ -68,7 +68,7 @@ variable "gallery_image_version" {
 
 variable "gallery_image_version_updated" {
   type    = string
-  default = "1.0.4
+  default = "1.0.4"
 }
 
 variable "storage_account_name" {
