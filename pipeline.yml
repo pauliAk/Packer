@@ -5,7 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: packer init
+- script: packer init .
 - script: packer build    
 - task: riezebosch.Packer.Packer.Packer@1
   displayName: 'Packer build'
