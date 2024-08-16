@@ -13,6 +13,6 @@ steps:
 - task: PackerBuild@1
   inputs:
     templateType: 'custom'
-    customTemplateLocation: azureimage.pkr.json
+    customTemplateLocation: azureimage.json
     packerVersion: 1.11.2
   
