@@ -15,6 +15,6 @@ steps:
     azureResourceGroup: $(RESOURCE_GROUP_NAME)
     #storageAccountName: fslogixstorage14
     templateType: 'custom'
-    customTemplateLocation: azureimage.json
+    customTemplateLocation: azureimage.pkr.json
     #location: westeurope
     packerVersion: '1.11.2'
