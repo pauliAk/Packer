@@ -119,9 +119,6 @@
   "build": {
     "sources": ["source.azure-arm.example"],
     
-    "post-processors": {
-      "type": "manifest",
-      "output": "manifest.json"
-    }
+    
   }
 }
