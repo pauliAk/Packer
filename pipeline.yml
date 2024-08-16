@@ -12,7 +12,7 @@ steps:
   displayName: 'Packer build'
   inputs:
     targetType: 'inline'
-    script: 'packer build $(build.artifactstagingdirectory)/azureimage.pkr.hcl'
+    script: 'packer build azureimage.pkr.hcl'
 
 
  
