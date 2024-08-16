@@ -2,7 +2,7 @@ trigger:
 - none
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - script: packer init .
@@ -13,15 +13,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $clientId = $(ARM_CLIENT_ID)
-      $clientSecret = $(ARM_CLIENT_SECRET)
+      $clientId = ${env:ARM_CLIENT_ID}
+      $clientSecret = ${env:ARM_CLIENT_SECRET}
     
       packer build azureimage.pkr.hcl
-
-
- 
-    
-
-
-
-
