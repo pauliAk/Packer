@@ -6,7 +6,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  - group: 
+  - group: packer-image-build-variables
 steps:
 - script: packer init .
 #- task: packer build 'azureimage.pkr.hcl'
