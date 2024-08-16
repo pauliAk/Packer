@@ -8,77 +8,26 @@
     }
   },
   "variables": {
-    "client_id": {
-      "type": "string",
-      "default": "${env(\"ARM_CLIENT_ID\")}"
-    },
-    "client_secret": {
-      "type": "string",
-      "default": "${env(\"ARM_CLIENT_SECRET\")}"
-    },
-    "subscription_id": {
-      "type": "string",
-      "default": "${env(\"ARM_SUBSCRIPTION_ID\")}"
-    },
-    "tenant_id": {
-      "type": "string",
-      "default": "${env(\"ARM_TENANT_ID\")}"
-    },
-    "resource_group_name": {
-      "type": "string",
-      "default": "${env(\"RESOURCE_GROUP_NAME\")}"
-    },
-    "gallery_image_name": {
-      "type": "string",
-      "default": "${env(\"GALLERY_IMAGE_NAME\")}"
-    },
-    "winrm_password": {
-      "type": "string",
-      "default": "${env(\"WINRM_PASSWORD\")}"
-    },
-    "storageAccountKey": {
-      "type": "string",
-      "default": "${env(\"STORAGE_ACCOUNT_KEY\")}"
-    },
-    "location": {
-      "type": "string",
-      "default": "West Europe"
-    },
-    "gallery_name": {
-      "type": "string",
-      "default": "acgAk"
-    },
-    "gallery_image_version": {
-      "type": "string",
-      "default": "1.0.1"
-    },
-    "gallery_image_version_updated": {
-      "type": "string",
-      "default": "1.0.3"
-    },
-    "storage_account_name": {
-      "type": "string",
-      "default": "fslogixstorage14"
-    },
-    "container_name": {
-      "type": "string",
-      "default": "testinstall"
-    },
-    "blob_name": {
-      "type": "string",
-      "default": "setup.exe"
-    },
-    "script_to_run": {
-      "type": "string",
-      "default": "Hero.msi"
-    },
-   
-    "replication_regions": ["west europe","north europe"],
+    "client_id": "{{env `ARM_CLIENT_ID`}}",
+    "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
+    "subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
+    "tenant_id": "{{env `ARM_TENANT_ID`}}",
+    "resource_group_name": "{{env `RESOURCE_GROUP_NAME`}}",
+    "gallery_image_name": "{{env `GALLERY_IMAGE_NAME`}}",
+    "winrm_password": "{{env `WINRM_PASSWORD`}}",
+    "storageAccountKey": "{{env `STORAGE_ACCOUNT_KEY`}}",
+    "location": "West Europe",
+    "gallery_name": "acgAk",
+    "gallery_image_version": "1.0.1",
+    "gallery_image_version_updated": "1.0.3",
+    "storage_account_name": "fslogixstorage14",
+    "container_name": "testinstall",
+    "blob_name": "setup.exe",
+    "script_to_run": "Hero.msi",
+    "replication_regions": "west europe,north europe",
     "managed_image_nameACG": "acgImageDef2"
-  
-   },
-  
-  "source": {
+  },
+  "sources": {
     "azure-arm": {
       "example": {
         "communicator": "winrm",
@@ -113,9 +62,10 @@
       }
     }
   },
-  "build": {
-    "sources": ["source.azure-arm.example"]
-    
-    
-  }
+  "builds": [
+    {
+      "name": "example-build",
+      "sources": ["source.azure-arm.example"]
+    }
+  ]
 }
