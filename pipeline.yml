@@ -6,13 +6,17 @@ pool:
 
 variables:
   - group: packer-image-build-variables
+
 steps:
-- script: packer init .
+- script: |
+    echo "Installing Packer..."
+    sudo apt-get update -y
+    sudo apt-get install -y packer
 
+    echo "Packer version:"
+    packer version
 
-- task: PackerBuild@0
-  inputs:
-    templateType: 'custom'
-    customTemplateLocation: azureimage.pkr.json
-    packerVersion: 1.11.2
+    echo "Running Packer build..."
+    packer build azureimage.pkr.json
+  displayName: 'Run Packer'
   
