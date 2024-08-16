@@ -72,15 +72,12 @@
       "type": "string",
       "default": "Hero.msi"
     },
-    "replication_regions": {
-      "type": "list(string)",
-      "default": ["west europe"]
-    },
-    "managed_image_nameACG": {
-      "type": "string",
-      "default": "acgImageDef2"
-    }
-  },
+   
+    "replication_regions": ["west europe","north europe"],
+    "managed_image_nameACG": "acgImageDef2"
+  
+   },
+  
   "source": {
     "azure-arm": {
       "example": {
