@@ -10,7 +10,7 @@ steps:
 - script: packer init .
 
 
-- task: PackerBuild@1
+- task: PackerBuild@0
   inputs:
     templateType: 'custom'
     customTemplateLocation: azureimage.pkr.json
