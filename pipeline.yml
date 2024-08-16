@@ -7,20 +7,15 @@ pool:
 steps:
 - script: packer init .
 #- task: packer build 'azureimage.pkr.hcl'
-- task: PackerBuild@1
+    
+- task: PowerShell@2
+  displayName: 'Packer build'
   inputs:
-    #deployScriptPath: azureimage.pkr.hcl
-    ConnectedServiceName: Visual Studio Enterprise Subscription(761cc7e6-a477-494a-99ef-a5d6aa0fde41)
-    azureResourceGroup: $(RESOURCE_GROUP_NAME)
-    #storageAccountName: fslogixstorage14
-    templateType: 'custom'
-    customTemplateLocation: azureimage.pkr.hcl
-    #location: westeurope
-    packerVersion: '1.11.2'
-    
+    targetType: 'inline'
+    script: 'packer build $(build.artifactstagingdirectory)/azureimage.pkr.hcl'
 
 
-    
+ 
     
 
 
