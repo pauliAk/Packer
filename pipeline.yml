@@ -16,8 +16,7 @@ steps:
     echo "Packer version:"
     packer version
 
-    echo "Running Packer build..."
-    echo "running packet init..."
+    echo "running packer init..."
     packer init .
     packer build azureimage.pkr.json
   displayName: 'Run Packer'
