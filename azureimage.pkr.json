@@ -117,7 +117,7 @@
     }
   },
   "build": {
-    "sources": ["source.azure-arm.example"],
+    "sources": ["source.azure-arm.example"]
     
     
   }
