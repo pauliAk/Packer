@@ -12,7 +12,11 @@ steps:
   displayName: 'Packer build'
   inputs:
     targetType: 'inline'
-    script: 'packer build azureimage.pkr.hcl'
+    script: |
+      $clientId = $(ARM_CLIENT_ID)
+      $clientSecret = $(ARM_CLIENT_SECRET)
+    
+      packer build azureimage.pkr.hcl
 
 
  
