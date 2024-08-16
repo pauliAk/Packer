@@ -7,6 +7,8 @@ pool:
 steps:
 - script: packer init .
 #- task: packer build 'azureimage.pkr.hcl'
+
+- script: 'curl -H "Metadata: true" http://169.254.169.254/metadata/identity/oauth2/token'
     
 - task: Bash@3
   displayName: 'Packer build'
@@ -17,3 +19,4 @@ steps:
       $clientSecret = ${env:ARM_CLIENT_SECRET}
     
       packer build azureimage.pkr.hcl
+
