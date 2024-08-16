@@ -7,7 +7,7 @@
       }
     }
   },
-  "variable": {
+  "variables": {
     "client_id": {
       "type": "string",
       "default": "${env(\"ARM_CLIENT_ID\")}"
@@ -85,40 +85,40 @@
     "azure-arm": {
       "example": {
         "communicator": "winrm",
-        "client_id": "${var.client_id}",
-        "client_secret": "${var.client_secret}",
-        "subscription_id": "${var.subscription_id}",
-        "tenant_id": "${var.tenant_id}",
+        "client_id": "${variables.client_id}",
+        "client_secret": "${variables.client_secret}",
+        "subscription_id": "${variables.subscription_id}",
+        "tenant_id": "${variables.tenant_id}",
         "managed_image_name": "myManagedImage16",
-        "managed_image_resource_group_name": "${var.resource_group_name}",
-        "location": "${var.location}",
+        "managed_image_resource_group_name": "${variables.resource_group_name}",
+        "location": "${variables.location}",
         "vm_size": "Standard_DS2_v2",
         "os_type": "Windows",
         "winrm_username": "kun",
-        "winrm_password": "${var.winrm_password}",
+        "winrm_password": "${variables.winrm_password}",
         "winrm_use_ssl": true,
         "winrm_insecure": true,
         "winrm_timeout": "90m",
         "shared_image_gallery": {
-          "subscription": "${var.subscription_id}",
-          "resource_group": "${var.resource_group_name}",
-          "gallery_name": "${var.gallery_name}",
-          "image_name": "${var.gallery_image_name}",
-          "image_version": "${var.gallery_image_version}"
+          "subscription": "${variables.subscription_id}",
+          "resource_group": "${variables.resource_group_name}",
+          "gallery_name": "${variables.gallery_name}",
+          "image_name": "${variables.gallery_image_name}",
+          "image_version": "${variables.gallery_image_version}"
         },
         "shared_image_gallery_destination": {
-          "gallery_name": "${var.gallery_name}",
-          "image_name": "${var.gallery_image_name}",
-          "image_version": "${var.gallery_image_version_updated}",
-          "replication_regions": "${var.replication_regions}",
-          "resource_group": "${var.resource_group_name}"
+          "gallery_name": "${variables.gallery_name}",
+          "image_name": "${variables.gallery_image_name}",
+          "image_version": "${variables.gallery_image_version_updated}",
+          "replication_regions": "${variables.replication_regions}",
+          "resource_group": "${variables.resource_group_name}"
         }
       }
     }
   },
   "build": {
     "sources": ["source.azure-arm.example"],
-    "provisioner": [
+    "provisioners": [
       {
         "type": "powershell",
         "inline": [
@@ -127,9 +127,9 @@
           "Set-ExecutionPolicy -ExecutionPolicy unrestricted -Scope LocalMachine -Force",
           "Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false",
           "Install-Module -Name Az -Repository PSGallery -Force -AllowClobber -Confirm:$false",
-          "$context = New-AzStorageContext -StorageAccountName ${var.storage_account_name} -StorageAccountKey ${var.storageAccountKey}",
-          "Get-AzStorageBlobContent -Container ${var.container_name} -Blob ${var.blob_name} -Destination C:\\Windows\\Temp -Context $context",
-          "Get-AzStorageBlobContent -Container ${var.container_name} -Blob ${var.script_to_run} -Destination C:\\Windows\\Temp -Context $context"
+          "$context = New-AzStorageContext -StorageAccountName ${variables.storage_account_name} -StorageAccountKey ${variables.storageAccountKey}",
+          "Get-AzStorageBlobContent -Container ${variables.container_name} -Blob ${variables.blob_name} -Destination C:\\Windows\\Temp -Context $context",
+          "Get-AzStorageBlobContent -Container ${variables.container_name} -Blob ${variables.script_to_run} -Destination C:\\Windows\\Temp -Context $context"
         ]
       },
       {
@@ -150,7 +150,7 @@
         ]
       }
     ],
-    "post-processor": {
+    "post-processors": {
       "type": "manifest",
       "output": "manifest.json"
     }
