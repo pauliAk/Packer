@@ -26,8 +26,10 @@
     "script_to_run": "Hero.msi",
     "managed_image_nameACG": "acgImageDef2"
   },
-  "source": {
-    "azure-arm": {
+  "sources": [
+    {
+      "name": "azure-arm-source",
+      "type": "azure-arm",
       "communicator": "winrm",
       "client_id": "{{user `client_id`}}",
       "client_secret": "{{user `client_secret`}}",
@@ -57,11 +59,11 @@
         "resource_group": "{{user `resource_group_name`}}"
       }
     }
-  },
+  ],
   "builds": [
     {
       "name": "example-build",
-      "sources": ["source.azure-arm"]
+      "sources": ["source.azure-arm-source"]
     }
   ]
 }
