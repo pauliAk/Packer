@@ -24,7 +24,7 @@
     "container_name": "testinstall",
     "blob_name": "setup.exe",
     "script_to_run": "Hero.msi",
-    "replication_regions": "west europe,north europe",
+   
     "managed_image_nameACG": "acgImageDef2"
   },
   "source": {
@@ -56,7 +56,7 @@
           "gallery_name": "{{user `gallery_name`}}",
           "image_name": "{{user `gallery_image_name`}}",
           "image_version": "{{user `gallery_image_version_updated`}}",
-          "replication_regions": "{{user `replication_regions`}}",
+         
           "resource_group": "{{user `resource_group_name`}}"
         }
       }
