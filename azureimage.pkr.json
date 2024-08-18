@@ -27,7 +27,7 @@
    
     "managed_image_nameACG": "acgImageDef2"
   },
-  "sources": {
+  "source": {
     "azure-arm": {
       "example": {
         "communicator": "winrm",
@@ -62,7 +62,7 @@
       }
     }
   },
-  "builds": [
+  "build": [
     {
       "name": "example-build",
       "sources": ["source.azure-arm.example"]
