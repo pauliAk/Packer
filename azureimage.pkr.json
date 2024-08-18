@@ -26,44 +26,39 @@
     "script_to_run": "Hero.msi",
     "managed_image_nameACG": "acgImageDef2"
   },
-  "sources": [
-    {
-      "name": "azure-arm-source",
-      "type": "azure-arm",
-      "communicator": "winrm",
-      "client_id": "{{user `client_id`}}",
-      "client_secret": "{{user `client_secret`}}",
-      "subscription_id": "{{user `subscription_id`}}",
-      "tenant_id": "{{user `tenant_id`}}",
-      "managed_image_name": "myManagedImage16",
-      "managed_image_resource_group_name": "{{user `resource_group_name`}}",
-      "location": "{{user `location`}}",
-      "vm_size": "Standard_DS2_v2",
-      "os_type": "Windows",
-      "winrm_username": "kun",
-      "winrm_password": "{{user `winrm_password`}}",
-      "winrm_use_ssl": true,
-      "winrm_insecure": true,
-      "winrm_timeout": "90m",
-      "shared_image_gallery": {
-        "subscription": "{{user `subscription_id`}}",
-        "resource_group": "{{user `resource_group_name`}}",
-        "gallery_name": "{{user `gallery_name`}}",
-        "image_name": "{{user `gallery_image_name`}}",
-        "image_version": "{{user `gallery_image_version`}}"
-      },
-      "shared_image_gallery_destination": {
-        "gallery_name": "{{user `gallery_name`}}",
-        "image_name": "{{user `gallery_image_name`}}",
-        "image_version": "{{user `gallery_image_version_updated`}}",
-        "resource_group": "{{user `resource_group_name`}}"
-      }
+  "source": {
+    "type": "azure-arm",
+    "communicator": "winrm",
+    "client_id": "{{user `client_id`}}",
+    "client_secret": "{{user `client_secret`}}",
+    "subscription_id": "{{user `subscription_id`}}",
+    "tenant_id": "{{user `tenant_id`}}",
+    "managed_image_name": "myManagedImage16",
+    "managed_image_resource_group_name": "{{user `resource_group_name`}}",
+    "location": "{{user `location`}}",
+    "vm_size": "Standard_DS2_v2",
+    "os_type": "Windows",
+    "winrm_username": "kun",
+    "winrm_password": "{{user `winrm_password`}}",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true,
+    "winrm_timeout": "90m",
+    "shared_image_gallery": {
+      "subscription": "{{user `subscription_id`}}",
+      "resource_group": "{{user `resource_group_name`}}",
+      "gallery_name": "{{user `gallery_name`}}",
+      "image_name": "{{user `gallery_image_name`}}",
+      "image_version": "{{user `gallery_image_version`}}"
+    },
+    "shared_image_gallery_destination": {
+      "gallery_name": "{{user `gallery_name`}}",
+      "image_name": "{{user `gallery_image_name`}}",
+      "image_version": "{{user `gallery_image_version_updated`}}",
+      "resource_group": "{{user `resource_group_name`}}"
     }
-  ],
-  "builds": [
-    {
-      "name": "example-build",
-      "sources": ["source.azure-arm-source"]
-    }
-  ]
+  },
+  "build": {
+    "name": "example-build",
+    "source": "source.azure-arm"
+  }
 }
