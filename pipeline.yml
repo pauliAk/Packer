@@ -15,7 +15,7 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+      az login --service-principal -u '13e26b33-e672-4ad9-a3ec-ec9950b96a0f' -p 'Qgy8Q~B92ZtUovFHPF2kieS_a1RnD0DsEptbKaLp' --tenant 'f6b9b1fa-10dd-4c5b-8b1b-404934b17313'
       packer init .
       packer build azureimage.pkr.hcl
 
