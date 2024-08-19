@@ -4,11 +4,16 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
 # variables:
 # - group: packer-image-build-variables
 
 steps:
-env:
+
+    
+- script: |
+
+  env:
     PKR_VAR_subscription_id: $(ARM_SUBSCRIPTION_ID)
     PKR_VAR_tenant_id: $(ARM_TENANT_ID)
     PKR_VAR_client_id: $(ARM_CLIENT_ID)
