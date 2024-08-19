@@ -8,24 +8,19 @@ pool:
 # - group: packer-image-build-variables
 
 steps:
-- script: |
-    echo "Installing Packer..."
-    sudo apt-get update -y
-    sudo apt-get install -y packer
 
-    echo "Packer version:"
-    packer version
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: $(ARM_SUBSCRIPTION_ID)
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+      packer init .
+      packer build azureimage.pkr.hcl
 
-    echo "Running packer init..."
-    packer init .
-    echo "Running packer build..."
-    packer build azureimage.pkr.hcl
-  displayName: 'Install and Run Packer'
   env:
-    PKR_VAR_subscription_id: $(ARM_SUBSCRIPTION_ID)
-    PKR_VAR_tenant_id: $(ARM_TENANT_ID)
-    PKR_VAR_client_id: $(ARM_CLIENT_ID)
-    PKR_VAR_client_secret: $(ARM_CLIENT_SECRET)
+   
     PKR_VAR_gallery_image_name: $(GALLERY_IMAGE_NAME)
     PKR_VAR_resource_group_name: $(RESOURCE_GROUP_NAME)
     PKR_VAR_storageAccountKey: $(STORAGE_ACCOUNT_KEY)
