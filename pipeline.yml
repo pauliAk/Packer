@@ -11,7 +11,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $(ARM_SUBSCRIPTION_ID)
+    azureSubscription: 'akserviceconnection1'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
