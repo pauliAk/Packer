@@ -18,6 +18,6 @@ steps:
 
     echo "running packer init..."
     packer init .
-    packer build azureimage.pkr.json
+    packer build azureimage.pkr.hcl
   displayName: 'Run Packer'
   
