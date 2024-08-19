@@ -1,0 +1,23 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: packer-image-build-variables
+
+steps:
+- script: |
+    echo "Installing Packer..."
+    sudo apt-get update -y
+    sudo apt-get install -y packer
+
+    echo "Packer version:"
+    packer version
+
+    echo "running packer init..."
+    packer init .
+    packer build azureimage.pkr.json
+  displayName: 'Run Packer'
+  
