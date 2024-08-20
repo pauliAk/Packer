@@ -4,8 +4,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
- - group: packer-image-build-variables
+#variables:
+# - group: packer-image-build-variables
 
 steps:
 - script: |
@@ -26,12 +26,12 @@ steps:
     echo "Running packer build..."
     packer build azureimage.pkr.hcl
   displayName: 'Install and Run Packer'
-  #env:
-    #PKR_VAR_subscription_id: $(ARM_SUBSCRIPTION_ID)
-    #PKR_VAR_tenant_id: $(ARM_TENANT_ID)
-    #PKR_VAR_client_id: $(ARM_CLIENT_ID)
-    #PKR_VAR_client_secret: $(ARM_CLIENT_SECRET)
-    #PKR_VAR_gallery_image_name: $(GALLERY_IMAGE_NAME)
-    #PKR_VAR_resource_group_name: $(RESOURCE_GROUP_NAME)
-    #PKR_VAR_storageAccountKey: $(STORAGE_ACCOUNT_KEY)
-    #PKR_VAR_winrm_password: $(WINRM_PASSWORD)
+  env:
+    PKR_VAR_subscription_id: $(ARM_SUBSCRIPTION_ID)
+    PKR_VAR_tenant_id: $(ARM_TENANT_ID)
+    PKR_VAR_client_id: $(ARM_CLIENT_ID)
+    PKR_VAR_client_secret: $(ARM_CLIENT_SECRET)
+    PKR_VAR_gallery_image_name: $(GALLERY_IMAGE_NAME)
+    PKR_VAR_resource_group_name: $(RESOURCE_GROUP_NAME)
+    PKR_VAR_storageAccountKey: $(STORAGE_ACCOUNT_KEY)
+    PKR_VAR_winrm_password: $(WINRM_PASSWORD)
