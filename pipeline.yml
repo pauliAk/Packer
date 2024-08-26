@@ -5,7 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
- - group: packer-image-build-variables
+ - group: packer-terraform-image-build-variables
 
 steps:
 - script: |
