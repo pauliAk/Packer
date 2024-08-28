@@ -68,7 +68,7 @@ variable "gallery_image_version" {
 
 variable "gallery_image_version_updated" {
   type    = string
-  default = "1.0.4"
+  default = "1.0.5"
 }
 
 variable "storage_account_name" {
@@ -126,7 +126,7 @@ communicator = "winrm"
   client_secret            = var.client_secret
   subscription_id          = var.subscription_id
   tenant_id                = var.tenant_id
-  managed_image_name       = "myManagedImage17"
+  managed_image_name       = "myManagedImage18"
   managed_image_resource_group_name = var.resource_group_name
   location                 = var.location
   vm_size                  = "Standard_DS2_v2"
