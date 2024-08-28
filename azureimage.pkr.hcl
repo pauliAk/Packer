@@ -63,7 +63,7 @@ variable "gallery_name" {
 
 variable "gallery_image_version" {
   type    = string
-  default = "1.0.1"
+  default = "1.0.2"
 }
 
 variable "gallery_image_version_updated" {
@@ -101,7 +101,7 @@ variable "replication_regions" {
 
 variable "managed_image_nameACG" {
   type = string
-  default = "acgImageDef2"
+  default = "acgImageDef3"
 }
 
 
